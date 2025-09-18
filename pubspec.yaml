@@ -1,0 +1,30 @@
+name: sample
+description: "Risk Calculator app"
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  csv: ^5.0.1
+  dropdown_button2: ^2.3.9
+  google_fonts: ^5.0.0
+
+  cupertino_icons: ^1.0.8
+  excel: ^4.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+
+flutter:
+  assets:
+    - assets/data.xlsx
+    - assets/logo.png
+  uses-material-design: true
