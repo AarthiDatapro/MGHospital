@@ -71196,7 +71196,7 @@ j(a){var s=this.jl(0),r=this.c
 return s+"["+this.b+".."+A.q(r===9007199254740991?"*":r)+"]"}}
 A.Hq.prototype={
 W(a){var s=null,r=4280166715,q=A.aGA().$0().d,p=A.aGB().$0(),o=A.ane(B.a3,s,s,A.a1(4294551764)),n=A.aqe(A.h8()),m=A.a1(4294963701)
-return new A.wB(new A.y1(s),"Risk Calculator",A.a9E(A.amO(s,s,B.V,!0,0,A.a1(r),s,s,s,s,s,s,s,s,A.cA(s,s,A.a1(r),s,s,s,s,s,s,s,s,20,s,s,B.aX,s,s,!0,s,0.2,s,s,s,s,s,s),s,s),s,o,q,m,p,!0,n),!1,s)}}
+return new A.wB(new A.y1(s),"Endometrium adjuvant treatment calculator",A.a9E(A.amO(s,s,B.V,!0,0,A.a1(r),s,s,s,s,s,s,s,s,A.cA(s,s,A.a1(r),s,s,s,s,s,s,s,s,20,s,s,B.aX,s,s,!0,s,0.2,s,s,s,s,s,s),s,s),s,o,q,m,p,!0,n),!1,s)}}
 A.y1.prototype={
 an(){var s=t.s
 return new A.BG(A.b([],t.SN),A.b([],s),A.b([],s),A.b([],s),A.b([],s),A.b([],s),A.b([],s),null,null)}}
@@ -71317,7 +71317,7 @@ l.toString
 return A.cM(i,new A.dB(new A.au(20,20,20,20),A.hZ(A.b([new A.dB(new A.au(0,0,0,0),r,i),new A.dB(new A.au(0,12,0,0),A.axD(k,new A.FC(A.cY(l,i,t.w).w.a.b*0.4,new A.ci(B.k,i,i,A.cE(12),A.b([new A.bj(1,B.C,A.bi(102,B.n.H()>>>16&255,B.n.H()>>>8&255,B.n.H()&255),new A.r(0,8),12)],d),i,i,B.Q),B.im),j,new A.Gs(A.ls(B.Ga,A.a1(4284773515),i,i)),!0,s,new A.Hg(new A.au(16,10,16,10)),a0,c,t.N),i)],q),B.bE,B.a4,B.ae),i),i,new A.ci(B.k,i,i,f,e,i,i,B.Q),i,new A.au(0,0,0,12),i,i)},
 W(b0){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a,a0,a1=this,a2=4294726023,a3=4294927223,a4=4294936214,a5=null,a6=4282865001,a7=4278190080,a8=A.a1(4294963701),a9=t.t_
 if(a1.db){a9=A.b([A.a1(a2),A.a1(a3),A.a1(a4)],a9)
-a9=A.cM(a5,A.an6(A.hZ(A.b([A.cM(a5,new A.uE(3,a5,a5,a5,new A.u2(B.k,t.ZU),a5,a5,a5),a5,new A.ci(A.bi(51,B.k.H()>>>16&255,B.k.H()>>>8&255,B.k.H()&255),a5,a5,A.cE(20),a5,a5,a5,B.Q),80,a5,new A.au(16,16,16,16),80),A.fl(a5,24,a5),A.dZ("Loading Risk Calculator...",a5,a5,a5,A.cA(a5,a5,B.k,a5,a5,a5,a5,a5,a5,a5,a5,18,a5,a5,B.aX,a5,a5,!0,a5,0.2,a5,a5,a5,a5,a5,a5),a5,a5)],t.F),B.a9,B.eU,B.ae),a5,a5),a5,new A.ci(a5,a5,a5,a5,a5,new A.j7(B.jx,B.jw,B.bv,a9,a5,a5),a5,B.Q),a5,a5,a5,a5)}else{s=a1.f
+a9=A.cM(a5,A.an6(A.hZ(A.b([A.cM(a5,new A.uE(3,a5,a5,a5,new A.u2(B.k,t.ZU),a5,a5,a5),a5,new A.ci(A.bi(51,B.k.H()>>>16&255,B.k.H()>>>8&255,B.k.H()&255),a5,a5,A.cE(20),a5,a5,a5,B.Q),80,a5,new A.au(16,16,16,16),80),A.fl(a5,24,a5),A.dZ("Loading By Scope...",a5,a5,a5,A.cA(a5,a5,B.k,a5,a5,a5,a5,a5,a5,a5,a5,18,a5,a5,B.aX,a5,a5,!0,a5,0.2,a5,a5,a5,a5,a5,a5),a5,a5)],t.F),B.a9,B.eU,B.ae),a5,a5),a5,new A.ci(a5,a5,a5,a5,a5,new A.j7(B.jx,B.jw,B.bv,a9,a5,a5),a5,B.Q),a5,a5,a5,a5)}else{s=a1.f
 s===$&&A.a()
 r=A.b([A.a1(a2),A.a1(a3),A.a1(a4)],a9)
 q=A.cE(16)
@@ -71325,7 +71325,7 @@ p=t.V
 o=A.b([new A.bj(0,B.C,A.bi(20,B.n.H()>>>16&255,B.n.H()>>>8&255,B.n.H()&255),new A.r(0,4),8)],p)
 n=A.cE(16)
 m=t.F
-r=A.cM(a5,A.apr(new A.dB(new A.au(20,20,20,20),A.hZ(A.b([A.oq(A.b([A.Y2(A.oq(A.b([A.cM(a5,A.an9(n,new A.qe(A.aAo(a5,a5,new A.ug("assets/logo.png",a5,a5)),new A.afI(),B.xM,a5),B.d7),a5,new A.ci(B.k,a5,a5,q,o,a5,a5,B.Q),72,a5,a5,72),A.fl(a5,a5,16),A.hZ(A.b([A.dZ("MG Hospitals",a5,a5,a5,A.cA(a5,a5,B.k,a5,a5,a5,a5,a5,a5,a5,a5,24,a5,a5,B.av,a5,a5,!0,a5,0.2,a5,a5,a5,a5,a5,a5),a5,a5),A.dZ("Advanced Risk Calculator",a5,a5,a5,A.cA(a5,a5,A.bi(B.d.az(229.5),B.k.H()>>>16&255,B.k.H()>>>8&255,B.k.H()&255),a5,a5,a5,a5,a5,a5,a5,a5,16,a5,a5,B.aX,a5,a5,!0,a5,0.2,a5,a5,a5,a5,a5,a5),a5,a5)],m),B.bE,B.dD,B.ae)],m),B.bS,B.a4,B.ae))],m),B.bS,B.a4,B.ae)],m),B.a9,B.dD,B.ae),a5),!0),a5,new A.ci(a5,a5,a5,a5,a5,new A.j7(B.jx,B.jw,B.bv,r,a5,a5),a5,B.Q),150,a5,a5,a5)
+r=A.cM(a5,A.apr(new A.dB(new A.au(20,20,20,20),A.hZ(A.b([A.oq(A.b([A.Y2(A.oq(A.b([A.cM(a5,A.an9(n,new A.qe(A.aAo(a5,a5,new A.ug("assets/logo.png",a5,a5)),new A.afI(),B.xM,a5),B.d7),a5,new A.ci(B.k,a5,a5,q,o,a5,a5,B.Q),72,a5,a5,72),A.fl(a5,a5,16),A.hZ(A.b([A.dZ("MG Hospitals",a5,a5,a5,A.cA(a5,a5,B.k,a5,a5,a5,a5,a5,a5,a5,a5,24,a5,a5,B.av,a5,a5,!0,a5,0.2,a5,a5,a5,a5,a5,a5),a5,a5),A.dZ("Endometrium adjuvant treatment calculator",a5,a5,a5,A.cA(a5,a5,A.bi(B.d.az(229.5),B.k.H()>>>16&255,B.k.H()>>>8&255,B.k.H()&255),a5,a5,a5,a5,a5,a5,a5,a5,16,a5,a5,B.aX,a5,a5,!0,a5,0.2,a5,a5,a5,a5,a5,a5),a5,a5)],m),B.bE,B.dD,B.ae)],m),B.bS,B.a4,B.ae))],m),B.bS,B.a4,B.ae)],m),B.a9,B.dD,B.ae),a5),!0),a5,new A.ci(a5,a5,a5,a5,a5,new A.j7(B.jx,B.jw,B.bv,r,a5,a5),a5,B.Q),150,a5,a5,a5)
 o=A.cM(a5,a5,a5,a5,a5,a5,new A.au(0,0,0,0),a5)
 q=A.cE(20)
 n=A.b([],p)

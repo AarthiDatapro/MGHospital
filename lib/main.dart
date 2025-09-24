@@ -4,6 +4,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:excel/excel.dart' as excel_package;
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:async';
 
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Risk Calculator',
+      title: 'Endometrium adjuvant treatment calculator',
       theme: ThemeData(
         fontFamily: GoogleFonts.lato().fontFamily,
         textTheme: GoogleFonts.latoTextTheme(),
@@ -38,11 +39,97 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: RiskCalculatorScreen(),
+      home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
+
+
+class SplashScreen extends StatefulWidget {
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 3), () {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => RiskCalculatorScreen()),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xFFF8BBD9), // Baby pink background
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              flex: 7, // 70% of available space
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1), // 10% left and right margin
+                child: Center(
+                  child: Image.asset(
+                    'assets/doctorsBehind.jpeg',
+                    fit: BoxFit.contain,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.3),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Icon(
+                          Icons.image_not_supported,
+                          size: 100,
+                          color: Colors.white,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 3, // 30% for bottom section
+              child: Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Validated by Dr. Priyalice',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w700,
+                        color: Color(0xFF1E293B),
+                        letterSpacing: 0.5,
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    // Optional: Add a loading indicator
+                    Container(
+                      width: 40,
+                      height: 40,
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFFC5187)),
+                        strokeWidth: 3,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 
 class RiskCalculatorScreen extends StatefulWidget {
   @override
@@ -397,7 +484,7 @@ class _RiskCalculatorScreenState extends State<RiskCalculatorScreen>
                     ),
                     SizedBox(height: 24),
                     Text(
-                      'Loading Risk Calculator...',
+                      'Loading By Scope...',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -415,7 +502,7 @@ class _RiskCalculatorScreenState extends State<RiskCalculatorScreen>
                 slivers: [
                   SliverToBoxAdapter(
                     child: Container(
-                      height: 150,
+                      height: 200,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           begin: Alignment.topLeft,
@@ -441,11 +528,12 @@ class _RiskCalculatorScreenState extends State<RiskCalculatorScreen>
                                       crossAxisAlignment: CrossAxisAlignment.end,
                                       children: [
                                         Container(
-                                          width: 72,
+                                          width: 82,
                                           height: 72,
+                                          padding: EdgeInsets.all(8),
                                           decoration: BoxDecoration(
                                             color: Colors.white,
-                                            borderRadius: BorderRadius.circular(16),
+                                            borderRadius: BorderRadius.circular(0),
                                             boxShadow: [
                                               BoxShadow(
                                                 color: Colors.black.withOpacity(0.08),
@@ -457,7 +545,7 @@ class _RiskCalculatorScreenState extends State<RiskCalculatorScreen>
                                           child: ClipRRect(
                                             borderRadius: BorderRadius.circular(16),
                                             child: Image.asset(
-                                              'assets/logo.png', 
+                                              'assets/logo.jpeg', 
                                               fit: BoxFit.cover,
                                               errorBuilder: (context, error, stackTrace) {
                                                 return Icon(
@@ -470,30 +558,20 @@ class _RiskCalculatorScreenState extends State<RiskCalculatorScreen>
                                           ),
                                         ),
                                         SizedBox(width: 16),
-                                        Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          mainAxisAlignment: MainAxisAlignment.end,
-                                          children: [
-                                        Text(
-                                          "MG Hospitals",
-                                          style: TextStyle(
-                                            fontSize: 24,
-                                                fontWeight: FontWeight.w700,
-                                            color: Colors.white,
-                                                letterSpacing: 0.2,
-                                          ),
-                                        ),
-                                        Text(
-                                          "Advanced Risk Calculator",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                                color: Colors.white.withOpacity(0.9),
-                                                fontWeight: FontWeight.w600,
-                                                letterSpacing: 0.2,
-                                          ),
-                                            ),
-                                          ],
-                                        ),
+                                        Expanded(
+  child: Text(
+    "Endometrium adjuvant treatment calculator",
+    style: TextStyle(
+      fontSize: 20,
+      color: Colors.white.withOpacity(0.9),
+      fontWeight: FontWeight.w600,
+      letterSpacing: 0.2,
+    ),
+    maxLines: 2,           // allows wrapping
+    overflow: TextOverflow.visible,
+    softWrap: true,        // enables auto line break
+  ),
+),
                                       ],
                                     ),
                                   ),

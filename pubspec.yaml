@@ -1,7 +1,7 @@
-name: sample
-description: "Risk Calculator app"
+name: By_Scope
+description: "Endometrium adjuvant treatment calculator"
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
+version: 1.0.0+1
 
 environment:
   sdk: ^3.8.1
@@ -19,12 +19,33 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.14.4"
 
   flutter_lints: ^5.0.0
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/endometriumLogo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/endometriumLogo.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/endometriumLogo.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/endometriumLogo.png"
+
 
 
 flutter:
   assets:
     - assets/data.xlsx
-    - assets/logo.png
+    - assets/logo.jpeg
+    - assets/doctorsBehind.jpeg
   uses-material-design: true
