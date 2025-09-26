@@ -484,7 +484,7 @@ class _RiskCalculatorScreenState extends State<RiskCalculatorScreen>
                     ),
                     SizedBox(height: 24),
                     Text(
-                      'Loading By Scope...',
+                      'Loading Endometrium...',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -677,41 +677,7 @@ if (recurrenceRisk != null && therapyAdvised != null)
     margin: EdgeInsets.only(top: 24),
     child: Column(
       children: [
-        // Compact Header
-        Container(
-          padding: EdgeInsets.all(16),
-          margin: EdgeInsets.only(bottom: 16),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xFFFC5187),
-                    Color(0xFFFF6377),
-                    Color(0xFFFF8696),],
-            ),
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Row(
-            children: [
-              Container(
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: Color(0xFFF472B6),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Icon(Icons.assessment_outlined, color: Colors.white, size: 20),
-              ),
-              SizedBox(width: 12),
-              Text(
-                "Assessment Results",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xFF0F172A),
-                ),
-              ),
-            ],
-          ),
-        ),
-
+        
         // First Row - Risk Group and Recurrence Risk
         Row(
           children: [
@@ -848,7 +814,7 @@ if (recurrenceRisk != null && therapyAdvised != null)
                 ),
                 child: Text(
                   therapyAdvised ?? 'Not available',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xFF5B21B6)),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xFFFFFFFF)),
                   textAlign: TextAlign.center,
                 ),
               ),

@@ -40,7 +40,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.byscope.app"
+        applicationId = "com.endometrium.app"
         minSdk = flutter.minSdkVersion
         targetSdk = 35
         versionCode = flutterVersionCode.toInt()

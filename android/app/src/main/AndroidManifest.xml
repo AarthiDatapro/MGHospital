@@ -2,7 +2,7 @@
 <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:label="By Scope"
+        android:label="Endometrium"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
