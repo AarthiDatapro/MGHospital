@@ -256,35 +256,30 @@ void getResult() {
     return;
   }
 
-  // Enhanced helper function to check if values match (considering "Any" as wildcard)
+  // Helper function to check if values match (considering "Any" as wildcard, except Molecular Subtype)
   bool valuesMatch(String? dataValue, String? selectedValue, String columnName) {
     if (dataValue == null || selectedValue == null) return false;
-    
+
     // Clean up the values for comparison
     String cleanDataValue = dataValue.trim();
     String cleanSelectedValue = selectedValue.trim();
-    
-    // Handle special case for "Any (Except polemut)" in Molecular Subtype
+
+    // 🚫 Molecular Subtype: always exact match, no "Any" allowed
     if (columnName == 'Molecular Subtype') {
-      if (cleanDataValue.toLowerCase().contains('any (except polemut)') || 
-          cleanDataValue.toLowerCase().contains('any(except polemut)')) {
-        // This matches everything except POLEmut
-        return !cleanSelectedValue.toLowerCase().contains('polemut');
-      }
+      return cleanDataValue == cleanSelectedValue;
     }
-    
+
     // If data contains "Any" (like "Any", "Any Grade", etc.), it matches any selection
-    // But exclude the special "except" cases which are handled above
-    if (cleanDataValue.toLowerCase().contains('any') && 
+    if (cleanDataValue.toLowerCase().contains('any') &&
         !cleanDataValue.toLowerCase().contains('except')) {
       return true;
     }
-    
+
     // If user selected an "Any" option, it should match any data value
     if (cleanSelectedValue.toLowerCase().contains('any')) {
       return true;
     }
-    
+
     // Otherwise, exact match
     return cleanDataValue == cleanSelectedValue;
   }
@@ -303,7 +298,7 @@ void getResult() {
   print("   Grade: $selectedGrade");
   print("   Subtype: $selectedSubtype");
   print("   Stage: $selectedStage");
-  
+
   if (match.isNotEmpty) {
     print("📋 Available matches:");
     for (int i = 0; i < match.length; i++) {
@@ -313,11 +308,10 @@ void getResult() {
 
   setState(() {
     if (match.isNotEmpty) {
-      // If multiple matches, take the first one (you might want to add logic to choose the best match)
       recurrenceRisk = match.first['Estimated Recurrence Risk'] ?? 'Not available';
       therapyAdvised = match.first['Therapy Advised'] ?? 'Not available';
       selectedRisk = match.first['Risk Group'] ?? 'Not available';
-      
+
       print("✅ Match found:");
       print("   Risk: $recurrenceRisk");
       print("   Therapy: $therapyAdvised");
@@ -327,7 +321,7 @@ void getResult() {
       therapyAdvised = "No therapy recommendation available";
       selectedRisk = 'Not available';
       print("❌ No matches found");
-      
+
       // Additional debug: Show sample data for troubleshooting
       print("📊 Sample data rows for debugging:");
       for (int i = 0; i < (csvData.length > 3 ? 3 : csvData.length); i++) {
