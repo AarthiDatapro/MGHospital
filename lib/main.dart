@@ -6,7 +6,6 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -250,32 +249,93 @@ class _RiskCalculatorScreenState extends State<RiskCalculatorScreen>
     }
   }
 
-  void getResult() {
-    if (selectedAge == null || selectedLVSI == null || selectedGrade == null ||
-        selectedSubtype == null || selectedStage == null) {
-      _showErrorDialog('Please select all options before getting results.');
-      return;
-    }
-
-    var match = csvData.where((row) =>
-        row['Age'] == selectedAge &&
-        row['LVSI Status'] == selectedLVSI &&
-        row['Grade'] == selectedGrade &&
-        row['Molecular Subtype'] == selectedSubtype &&
-        row['Stage'] == selectedStage).toList();
-
-    setState(() {
-      if (match.isNotEmpty) {
-        recurrenceRisk = match.first['Estimated Recurrence Risk'] ?? 'Not available';
-        therapyAdvised = match.first['Therapy Advised'] ?? 'Not available';
-        selectedRisk = match.first['Risk Group'] ?? 'Not available';
-      } else {
-        recurrenceRisk = "No results found";
-        therapyAdvised = "No therapy recommendation available";
-        selectedRisk = 'Not available';
-      }
-    });
+void getResult() {
+  if (selectedAge == null || selectedLVSI == null || selectedGrade == null ||
+      selectedSubtype == null || selectedStage == null) {
+    _showErrorDialog('Please select all options before getting results.');
+    return;
   }
+
+  // Enhanced helper function to check if values match (considering "Any" as wildcard)
+  bool valuesMatch(String? dataValue, String? selectedValue, String columnName) {
+    if (dataValue == null || selectedValue == null) return false;
+    
+    // Clean up the values for comparison
+    String cleanDataValue = dataValue.trim();
+    String cleanSelectedValue = selectedValue.trim();
+    
+    // Handle special case for "Any (Except polemut)" in Molecular Subtype
+    if (columnName == 'Molecular Subtype') {
+      if (cleanDataValue.toLowerCase().contains('any (except polemut)') || 
+          cleanDataValue.toLowerCase().contains('any(except polemut)')) {
+        // This matches everything except POLEmut
+        return !cleanSelectedValue.toLowerCase().contains('polemut');
+      }
+    }
+    
+    // If data contains "Any" (like "Any", "Any Grade", etc.), it matches any selection
+    // But exclude the special "except" cases which are handled above
+    if (cleanDataValue.toLowerCase().contains('any') && 
+        !cleanDataValue.toLowerCase().contains('except')) {
+      return true;
+    }
+    
+    // If user selected an "Any" option, it should match any data value
+    if (cleanSelectedValue.toLowerCase().contains('any')) {
+      return true;
+    }
+    
+    // Otherwise, exact match
+    return cleanDataValue == cleanSelectedValue;
+  }
+
+  var match = csvData.where((row) =>
+      valuesMatch(row['Age'], selectedAge, 'Age') &&
+      valuesMatch(row['LVSI Status'], selectedLVSI, 'LVSI Status') &&
+      valuesMatch(row['Grade'], selectedGrade, 'Grade') &&
+      valuesMatch(row['Molecular Subtype'], selectedSubtype, 'Molecular Subtype') &&
+      valuesMatch(row['Stage'], selectedStage, 'Stage')).toList();
+
+  // Debug print to see what matches were found
+  print("🔍 Found ${match.length} matches for:");
+  print("   Age: $selectedAge");
+  print("   LVSI: $selectedLVSI");
+  print("   Grade: $selectedGrade");
+  print("   Subtype: $selectedSubtype");
+  print("   Stage: $selectedStage");
+  
+  if (match.isNotEmpty) {
+    print("📋 Available matches:");
+    for (int i = 0; i < match.length; i++) {
+      print("   Match ${i + 1}: ${match[i]}");
+    }
+  }
+
+  setState(() {
+    if (match.isNotEmpty) {
+      // If multiple matches, take the first one (you might want to add logic to choose the best match)
+      recurrenceRisk = match.first['Estimated Recurrence Risk'] ?? 'Not available';
+      therapyAdvised = match.first['Therapy Advised'] ?? 'Not available';
+      selectedRisk = match.first['Risk Group'] ?? 'Not available';
+      
+      print("✅ Match found:");
+      print("   Risk: $recurrenceRisk");
+      print("   Therapy: $therapyAdvised");
+      print("   Risk Group: $selectedRisk");
+    } else {
+      recurrenceRisk = "No results found";
+      therapyAdvised = "No therapy recommendation available";
+      selectedRisk = 'Not available';
+      print("❌ No matches found");
+      
+      // Additional debug: Show sample data for troubleshooting
+      print("📊 Sample data rows for debugging:");
+      for (int i = 0; i < (csvData.length > 3 ? 3 : csvData.length); i++) {
+        print("   Row ${i + 1}: ${csvData[i]}");
+      }
+    }
+  });
+}
 
   void _showErrorDialog(String message) {
     showDialog(
